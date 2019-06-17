@@ -56,7 +56,7 @@ The confusion may come from our supplementary demo, we can show more results inc
 
 ## <span id="C2">Compare with the model including only read noise, photon noise and dark noise</span>
 
-![](C:\Users\Tao Yue\Documents\wangwei\ICCVrebuttal\github\pic\modelvalue_im.bmp)
+![](/pic/modelvalue_im.bmp)
 
 > Fig. 3 Comparisons on the model including only read noise, photon noise , dark noise(RPD) and the proposed noise model.
 >
