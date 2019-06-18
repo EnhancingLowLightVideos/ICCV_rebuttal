@@ -56,7 +56,7 @@ The confusion may come from our supplementary demo, we can show more results inc
 
 ## <span id="C2">Compare with the model including only read noise, photon noise and dark noise</span>
 
-![](/pic/modelvalue_im.bmp)
+![](C:\Users\Tao Yue\Documents\wangwei\ICCVrebuttal\github\pic\modelvalue_im.bmp)
 
 > Fig. 3 Comparisons on the model including only read noise, photon noise , dark noise(RPD) and the proposed noise model.
 >
@@ -71,11 +71,11 @@ The paper "Noise2Noise: Learning Image Restoration without Clean Data" proposed 
 
 > Fig. 4 Comparisons with the noise-to-noise with the pre-trained network.
 
-Then we train the noise-to-noise with higher noise level(the mean of Poisson is 150 and the standard deviation of Gaussian is 100 to 150) follow the official Introductions. The results show as figure 5.
+Then we train the noise-to-noise with higher noise level(the mean of Poisson is 150 and the standard deviation of Gaussian is 100 to 150) and our noise model follow the official Introductions. The results show as figure 5. 
 
 ![](pic/noise2noise2.bmp)
 
-> Fig. 5 Comparisons with the noise-to-noise with higher noise level network.
+> Fig. 5 Comparisons with the noise-to-noise that network trained with higher noise level and network trained with our noise model.
 
 ## <span id="I3">Include more results on different type of camera models(TODO)</span>
 
