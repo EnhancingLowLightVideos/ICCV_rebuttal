@@ -16,10 +16,9 @@
 
 Thank you for the insightful questions. Temporal flickering is a common problem in many video processed tasks  due to the instability of global optimization algorithms or highly non-linear deep networks. After you point out this, we try to solve the  temporal flickering in videos. We find the algorithm  corresponding to the paper  [Learning Blind Video Temporal Consistency](<https://github.com/phoenix104104/fast_blind_video_consistency>) can be a post-processing choice for video tasks which has temporal flickering. We apply post-processing algorithm not only in results of our model but also in VBM4D and TOFlow.
 
-​                      **VBM4D                                                     TOFlow                                                        Our**
-
-| ![](pic/flickering/orgin/sys/VBM4D.gif)       | ![](pic/flickering/orgin/sys/TOFlow.gif)       | ![](pic/flickering/orgin/sys/our.gif)       |
-| --------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
+|                     VBM4D                     |                     TOFlow                     |                     Our                     |
+| :-------------------------------------------: | :--------------------------------------------: | :-----------------------------------------: |
+|    ![](pic/flickering/orgin/sys/VBM4D.gif)    |    ![](pic/flickering/orgin/sys/TOFlow.gif)    |    ![](pic/flickering/orgin/sys/our.gif)    |
 | ![](pic/flickering/ECCV_c/sys/VBM4D_eccv.gif) | ![](pic/flickering/ECCV_c/sys/TOFlow_eccv.gif) | ![](pic/flickering/ECCV_c/sys/our_eccv.gif) |
 
 | ![VBM4D](pic/flickering/orgin/cannon/VBM4D.gif)  | ![](pic/flickering/orgin/cannon/TOFlow.gif)       | ![](pic/flickering/orgin/cannon/our.gif)       |
@@ -40,13 +39,14 @@ However,  it is not the best way to choose post-processing to remove temporal fl
 
 The confusion may come from our supplementary demo, we can show more results including big motion(Fig. 2). In fact, we did not deliberately limit the size of the movement. Our training datasets has about 900 sequences which are abundant in moving scenes including small, middle or big motion. We are willing to provide our training datasets here [Link](<https://drive.google.com/open?id=1eC18IbfVGAebJBMDJy2sTdTPjdwdZ4jd>).
 
-| ![](pic/motion/real/noise/13.gif)    | ![](pic/motion/real/our/13.gif)    |
-| ------------------------------------ | ---------------------------------- |
-| ![](pic/motion/sys/noise/ball.gif)   | ![](pic/motion/sys/our/ball.gif)   |
-| ![](pic/motion/sys/noise/cat.gif)    | ![](pic/motion/sys/our/cat.gif)    |
-| ![](pic/motion/real/noise/19.gif)    | ![](pic/motion/real/our/19.gif)    |
+|                Input                 |            Our results             |
+| :----------------------------------: | :--------------------------------: |
+|  ![](pic/motion/real/noise/13.gif)   |  ![](pic/motion/real/our/13.gif)   |
+|  ![](pic/motion/sys/noise/ball.gif)  |  ![](pic/motion/sys/our/ball.gif)  |
+|  ![](pic/motion/sys/noise/cat.gif)   |  ![](pic/motion/sys/our/cat.gif)   |
+|  ![](pic/motion/real/noise/19.gif)   |  ![](pic/motion/real/our/19.gif)   |
 | ![](pic/motion/sys/noise/motor1.gif) | ![](pic/motion/sys/our/motor1.gif) |
-| ![](pic/motion/real/noise/24.gif)    | ![](pic/motion/real/our/24.gif)    |
+|  ![](pic/motion/real/noise/24.gif)   |  ![](pic/motion/real/our/24.gif)   |
 
 > Fig. 2 More results of our proposed model which including abundant motion. To facilitate visualization of the original input videos, we show in the first column the brightness-scaled input videos.
 
