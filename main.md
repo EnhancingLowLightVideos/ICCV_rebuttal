@@ -50,9 +50,9 @@ The confusion may come from our supplementary demo, we can show more results inc
 
 > Fig. 2 More results of our proposed model which including abundant motion. To facilitate visualization of the original input videos, we show in the first column the brightness-scaled input videos.
 
-## <span id="C1">Compare with Learning to See in the Dark(TODO)</span>
+## <span id="C1">Compare with Learning to See in the Dark</span>
 
-
+In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, this method may not be applied to the video denoising scenario.  However, we are willing to compare with this method at the same setting in the low light scenario. Since the see-in-the-dark dataset were captured using two cameras: Sony $\alpha$7S 2 and Fujifilm X-T2, in this rebuttal we calibrate noise model parameters and train network for Sony $\alpha$7S 2. Then we make comparison with test_sony model in the 
 
 ## <span id="C2">Compare with the model including only read noise, photon noise and dark noise</span>
 
