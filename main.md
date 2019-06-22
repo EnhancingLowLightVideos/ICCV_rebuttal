@@ -52,30 +52,37 @@ The confusion may come from our supplementary demo, we can show more results inc
 
 ## <span id="C1">Compare with Learning to See in the Dark</span>
 
-In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, this method may not be applied to the video denoising scenario.  However, we are willing to compare with this method at the same setting in the low light scenario. Since the see-in-the-dark dataset were captured using two cameras: Sony $\alpha$7S 2 and Fujifilm X-T2, in this rebuttal we calibrate noise model parameters and train network for Sony $\alpha$7S 2. Then we make comparison with test_Sony model in the [Github](<https://github.com/cchen156/Learning-to-See-in-the-Dark>) 
+In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, this method cannot be applied to the video denoising scenario.  And the method need to take raw images captured using two cameras(Sony $\alpha$7S 2 and Fujifilm X-T2) as input, it is unable to obtain raw data when taking videos. 
+
+However, we are interested to compare with this method at the same camera settings in the same low light scenario. In this rebuttal we calibrate noise model parameters and train network for Sony $\alpha$7S 2. Then we make comparison with test_Sony model in the [Github](<https://github.com/cchen156/Learning-to-See-in-the-Dark>) . The results are in Fig. 3.
+
+![](pic/see-in-dark.bmp)
+
+> Fig. 3 Comparisons with see-in-dark at the same camera settings in the same low light scenario.
 
 ## <span id="C2">Compare with the model including only read noise, photon noise and dark noise</span>
 
 ![](pic/modelvalue_im.bmp)
 
-> Fig. 3 Comparisons on the model including only read noise, photon noise , dark noise(RPD) and the proposed noise model.
+> Fig. 4 Comparisons on the model including only read noise, photon noise , dark noise(RPD) and the proposed noise model.
 >
 
-To verify the effectiveness of the proposed noise model especially the DSN, color-channel cross-talk and clipping effect, we train the network of [TOFlow](https://arxiv.org/abs/1711.09078) and our network model upon basic practical noise model(eq. 1) and the proposed noise model. As show in Fig. 3, with the same network (i.e. TOFlow or our network), the results of proposed noise model are of the best quality in terms of much less chrominance artifacts, more structural details and higher contrast.
+To verify the effectiveness of the proposed noise model especially the DSN, color-channel cross-talk and clipping effect, we train the network of [TOFlow](https://arxiv.org/abs/1711.09078) and our network model upon basic practical noise model(eq. 1) and the proposed noise model. As show in Fig. 4, with the same network (i.e. TOFlow or our network), the results of proposed noise model are of the best quality in terms of much less chrominance artifacts, more structural details and higher contrast.
 
 ## <span id="C22">Compare with the paper doing noise-to-noise</span>
 
-The paper "Noise2Noise: Learning Image Restoration without Clean Data" proposed to learn to turn bad images into good images by only looking at bad images, we think it is very innovative. From the [official code](<https://github.com/NVlabs/noise2noise>) , the pre-trained networks for Poisson and Gaussian noise are used to process our low light videos(show in Fig. 4). Since the noise levels in low light videos are too high for pre-trained networks(the mean of Poisson is 50 and the standard deviation of Gaussian is 0 to 50) and only use single frame information, the results are not very good.
+The paper "Noise2Noise: Learning Image Restoration without Clean Data" proposed to learn to turn bad images into good images by only looking at bad images, we think it is very innovative. From the [official code](<https://github.com/NVlabs/noise2noise>) , the pre-trained networks for Poisson and Gaussian noise are used to process our low light videos(show in Fig. 5). Since the noise levels in low light videos are too high for pre-trained networks(the mean of Poisson is 50 and the standard deviation of Gaussian is 0 to 50) and only use single frame information, the results are not very good.
 
 ![noise2noise](pic/noise2noise.bmp)
 
-> Fig. 4 Comparisons with the noise-to-noise with the pre-trained network.
+> Fig. 5 Comparisons with the noise-to-noise with the pre-trained network.
 
-Then we train the noise-to-noise with higher noise level(the mean of Poisson is 150 and the standard deviation of Gaussian is 100 to 150) and our noise model follow the official Introductions. The results show as figure 5. 
+Then we train the noise-to-noise with higher noise level(the mean of Poisson is 150 and the standard deviation of Gaussian is 100 to 150) and our noise model follow the official Introductions. The results show as Fig. 6. 
 
 ![](pic/noise2noise2.bmp)
 
-> Fig. 5 Comparisons with the noise-to-noise that network trained with higher noise level and network trained with our noise model.
+> Fig. 6 Comparisons with the noise-to-noise that network trained with higher noise level and network trained with our noise model.
 
-## <span id="I3">Include more results on different type of camera models(TODO)</span>
+## <span id="I3">Include more results on different type of camera models</span>
 
+We will add more results on different type of camera models in the future work and during rebuttal period we have made experiment on another camera  Sony $\alpha$7S 2. The results can be found in Fig. 3.
