@@ -85,4 +85,4 @@ Then we train the noise-to-noise with higher noise level(the mean of Poisson is 
 
 ## <span id="I3">Include more results on different type of camera models</span>
 
-We will add more results on different type of camera models in the future work and during rebuttal period we have made experiment on another camera  Sony $\alpha$7S 2. The results can be found in Fig. 3.
+We will add more results on different type of camera models in the future work and during rebuttal period we have made experiment on another camera  Sony &alpha7S 2. The results can be found in Fig. 3.
