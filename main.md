@@ -14,7 +14,7 @@
 
 ## <span id="F1">Flickering artifacts in the video</span>
 
-Thank you for the insightful questions. Temporal flickering is a common problem in many video processed tasks  due to the instability of global optimization algorithms or highly non-linear deep networks. After you point out this, we try to solve the  temporal flickering in videos. We find the algorithm  corresponding to the paper  [Learning Blind Video Temporal Consistency](<https://github.com/phoenix104104/fast_blind_video_consistency>) can be a post-processing choice for video tasks which has temporal flickering. We apply post-processing algorithm not only in results of our model but also in VBM4D and TOFlow.
+We thank the reviewer for pointing out this. Temporal flickering is a common problem in video processing tasks due to the instability of global optimization algorithms or highly non-linearity of deep networks. As shown, the flickering artifacts appear in the results of not only our method but also the other methods. Here, we propose to further eliminate the temporal flickering artifacts in videos with the post-processing which has been demonstrated to reduce the flickering artifacts successfully in [Learning Blind Video Temporal Consistency](<https://github.com/phoenix104104/fast_blind_video_consistency>) For fair comparison, we apply the post-processing [Learning Blind Video Temporal Consistency](<https://github.com/phoenix104104/fast_blind_video_consistency>)  in results of our method and the other methods (VBM4D and TOFlow). 
 
 |                     VBM4D                     |                     TOFlow                     |                     Our                     |
 | :-------------------------------------------: | :--------------------------------------------: | :-----------------------------------------: |
@@ -33,11 +33,11 @@ Thank you for the insightful questions. Temporal flickering is a common problem 
 
 From Fig. 1, slight temporal flickering in  our enhancement videos can be remove via  [Learning Blind Video Temporal Consistency](<https://github.com/phoenix104104/fast_blind_video_consistency>) as post-processing. But severe temporal flickering in VBM4D and TOFlow is not obvious to be removed.
 
-However,  it is not the best way to choose post-processing to remove temporal flickering. We will consider temporal consistency loss in the design and training of our network as end-to-end process in the next work.
+In the future work, we will explore to introduce temporal consistency loss in our network and develop an end-to-end network which could simultaneously enhance the low-light videos and reduce the flickering artifacts.
 
 ## <span id="R1">Results  have small motion</span>
 
-The confusion may come from our supplementary demo, we can show more results including big motion(Fig. 2). In fact, we did not deliberately limit the size of the movement. Our training datasets has about 900 sequences which are abundant in moving scenes including small, middle or big motion. We are willing to provide our training datasets here [Link](<https://drive.google.com/open?id=1eC18IbfVGAebJBMDJy2sTdTPjdwdZ4jd>).
+Thanks for the suggestion. Our network could also deal with the videos with large motions, which are not shown in the supplementary material. In Fig. 2, we show more results of our method with big motions. Specifically, the ability of dealing with large motion depends on the training dataset, and we did not deliberately limit the size of the movement. Our training datasets is consist of about 900 sequences, abundant in moving scenes including small, middle and big motions. Our  training datasets is released at:   [Datasets](<https://drive.google.com/open?id=1eC18IbfVGAebJBMDJy2sTdTPjdwdZ4jd>).
 
 |                Input                 |            Our results             |
 | :----------------------------------: | :--------------------------------: |
@@ -52,13 +52,13 @@ The confusion may come from our supplementary demo, we can show more results inc
 
 ## <span id="C1">Compare with Learning to See in the Dark</span>
 
-In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, this method cannot be applied to the video denoising scenario.  And the method need to take raw images captured using two cameras(Sony $\alpha$7S 2 and Fujifilm X-T2) as input, it is unable to obtain raw data when taking videos. 
+Thank \#R1 for your suggestion.  In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, this method cannot be applied to the denoising of videos. Besides, the method need to take raw images captured using two cameras models (Sony $\alpha$7S 2 and Fujifilm X-T2) as input, while those camera models are unable to obtain raw data when taking videos. 
 
-However, we are interested to compare with this method at the same camera settings in the same low light scenario. In this rebuttal we calibrate noise model parameters and train network for Sony $\alpha$7S 2. Then we make comparison with test_Sony model in the [Github](<https://github.com/cchen156/Learning-to-See-in-the-Dark>) . The results are in Fig. 3.
+However, we are interested in comparing with this method at the same camera settings in the same low light scenario. In this rebuttal we calibrate the noise model parameters and train the network for Sony $\alpha$7S 2. Then we make comparisons with test-sony model [See-in-dark](<https://github.com/cchen156/Learning-to-See-in-the-Dark>). Through comparing with the image captured during the day, our method is demonstrated to recover higher fidelity both in color and spatial details.
 
 ![](pic/see-in-dark.bmp)
 
-> Fig. 3 Comparisons with see-in-dark at the same camera settings in the same low light scenario.
+> Fig. 3 Comparisons with see-in-dark at the same camera settings(ISO:128000,Exposure time:1/30) in the same low light scenario.
 
 ## <span id="C2">Compare with the model including only read noise, photon noise and dark noise</span>
 
@@ -67,22 +67,23 @@ However, we are interested to compare with this method at the same camera settin
 > Fig. 4 Comparisons on the model including only read noise, photon noise , dark noise(RPD) and the proposed noise model.
 >
 
-To verify the effectiveness of the proposed noise model especially the DSN, color-channel cross-talk and clipping effect, we train the network of [TOFlow](https://arxiv.org/abs/1711.09078) and our network model upon basic practical noise model(eq. 1) and the proposed noise model. As show in Fig. 4, with the same network (i.e. TOFlow or our network), the results of proposed noise model are of the best quality in terms of much less chrominance artifacts, more structural details and higher contrast.
+Thank \#R2 for your suggestion. To verify the effectiveness of the proposed noise model, we train the network of [TOFlow](https://arxiv.org/abs/1711.09078) and our network model upon basic practical noise model (Eq.~1) and the proposed noise model. As show in Fig. 4, with the same network (i.e. TOFlow or our network), the results of proposed noise model are of the best quality in terms of much less chrominance artifacts, more structural details and higher contrast.
 
 ## <span id="C22">Compare with the paper doing noise-to-noise</span>
 
-The paper "Noise2Noise: Learning Image Restoration without Clean Data" proposed to learn to turn bad images into good images by only looking at bad images, we think it is very innovative. From the [official code](<https://github.com/NVlabs/noise2noise>) , the pre-trained networks for Poisson and Gaussian noise are used to process our low light videos(show in Fig. 5). Since the noise levels in low light videos are too high for pre-trained networks(the mean of Poisson is 50 and the standard deviation of Gaussian is 0 to 50) and only use single frame information, the results are not very good.
+Thank the reviewer for this suggestion.  The noise-to-noise paper proposed to learn to turn bad images into good images by only looking at bad images, which is quite innovative and inspiring.  From the [official code](<https://github.com/NVlabs/noise2noise>) , the pre-trained networks for Poisson and Gaussian noise are used to process our low light videos(show in Fig. 5). Since the noise levels in low light videos are too high for pre-trained networks(the mean of Poisson is 50 and the standard deviation of Gaussian is 0 to 50) and only use single frame information, the results are not very good.
 
 ![noise2noise](pic/noise2noise.bmp)
 
 > Fig. 5 Comparisons with the noise-to-noise with the pre-trained network.
 
-Then we train the noise-to-noise with higher noise level(the mean of Poisson is 150 and the standard deviation of Gaussian is 100 to 150) and our noise model follow the official Introductions. The results show as Fig. 6. 
+Then we train the noise-to-noise network with different noise models: Poisson, Gaussian and our noise model following the official guide in [Github](<https://github.com/NVlabs/noise2noise>). The noise level are chosen in comparable for fair comparison and the results are shown in Fig. 6. As compared, both method could remove a large extent of noise and recover the spatial details, while the proposed method could further remove the streak noise which could not be handled with Noise2noise. 
 
 ![](pic/noise2noise2.bmp)
 
-> Fig. 6 Comparisons with the noise-to-noise that network trained with higher noise level and network trained with our noise model.
+> Fig. 6 Comparisons with the noise-to-noise that network trained with comparable noise level and network trained with our noise model.
 
 ## <span id="I3">Include more results on different type of camera models</span>
 
-We will add more results on different type of camera models in the future work and during rebuttal period we have made experiment on another camera  Sony $\alpha$7S 2. The results can be found in Fig. 3.
+We will add more results on different type of camera models in the future work and during rebuttal period we have conduct  experiments on the Sony $\alpha$7S 2 camera, and the results are shown in Fig. 3.
+
