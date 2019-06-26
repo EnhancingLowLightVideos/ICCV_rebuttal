@@ -2,7 +2,7 @@
 
 [Flickering artifacts in the video(#R1)](#F1)
 
-[Results  have small motion(#R1)](#R1)
+[Results with large motion are required(#R1)](#R1)
 
 [Compare with Learning to See in the Dark (#R1)](#C1)
 
@@ -14,7 +14,7 @@
 
 ## <span id="F1">Flickering artifacts in the video</span>
 
-We thank the reviewer for pointing out this. Temporal flickering is a common problem in video processing tasks due to the instability of global optimization algorithms or highly non-linearity of deep networks. As shown, the flickering artifacts appear in the results of not only our method but also the other methods. Here, we propose to further eliminate the temporal flickering artifacts in videos with the post-processing which has been demonstrated to reduce the flickering artifacts successfully in [Learning Blind Video Temporal Consistency](<https://github.com/phoenix104104/fast_blind_video_consistency>) For fair comparison, we apply the post-processing [Learning Blind Video Temporal Consistency](<https://github.com/phoenix104104/fast_blind_video_consistency>)  in results of our method and the other methods (VBM4D and TOFlow). 
+We thank the reviewer for pointing out this. Temporal flickering is a common problem in various video processing tasks due to the temporal instability of frame-based optimization or highly non-linearity of deep networks. Not only our methods, but many other video denoising algorithms, like VBM4D and TOFlow suffer from flicking artifacts. To solve this problem, we apply the post-processing [Learning Blind Video Temporal Consistency](<https://github.com/phoenix104104/fast_blind_video_consistency>) on both our algorithm and other methods (VBM4D and TOFlow).  
 
 |                     VBM4D                     |                     TOFlow                     |                     Our                     |
 | :-------------------------------------------: | :--------------------------------------------: | :-----------------------------------------: |
@@ -35,9 +35,9 @@ From Fig. 1, slight temporal flickering in  our enhancement videos can be remove
 
 In the future work, we will explore to introduce temporal consistency loss in our network and develop an end-to-end network which could simultaneously enhance the low-light videos and reduce the flickering artifacts.
 
-## <span id="R1">Results  have small motion</span>
+## <span id="R1">Results with large motion are required</span>
 
-Thanks for the suggestion. Our network could also deal with the videos with large motions, which are not shown in the supplementary material. In Fig. 2, we show more results of our method with big motions. Specifically, the ability of dealing with large motion depends on the training dataset, and we did not deliberately limit the size of the movement. Our training datasets is consist of about 900 sequences, abundant in moving scenes including small, middle and big motions. Our  training datasets is released at:   [Datasets](<https://drive.google.com/open?id=1eC18IbfVGAebJBMDJy2sTdTPjdwdZ4jd>).
+Thanks for the suggestion. Our network could deal with the large motion videos well. In fact, we did not deliberately limit the size of the movement on either the training dataset or the test one. Our datasets include about 900 sequences (800 sequences for training and 100 sequences for test). Both the training and test datasets are abundant in moving scenes including small, middle and big motions. The datasets is released at: [Datasets](<https://drive.google.com/open?id=1eC18IbfVGAebJBMDJy2sTdTPjdwdZ4jd>). In Fig. 2, we show more results of our method with big motions.
 
 |                Input                 |            Our results             |
 | :----------------------------------: | :--------------------------------: |
@@ -52,9 +52,9 @@ Thanks for the suggestion. Our network could also deal with the videos with larg
 
 ## <span id="C1">Compare with Learning to See in the Dark</span>
 
-Thank \#R1 for your suggestion.  In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, this method cannot be applied to the denoising of videos. Besides, the method need to take raw images captured using two cameras models (Sony $\alpha$7S 2 and Fujifilm X-T2) as input, while those camera models are unable to obtain raw data when taking videos. 
+Thank \#R1 for your suggestion.  In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, it is difficult to extent this method to dynamic video denoising. Besides, two specific camera models (Sony $\alpha$7S 2 and Fujifilm X-T2) are provided with only the raw image as input, while those cameras are unable to obtain raw data when taking videos. 
 
-However, we are interested in comparing with this method at the same camera settings in the same low light scenario. In this rebuttal we calibrate the noise model parameters and train the network for Sony $\alpha$7S 2. Then we make comparisons with test-sony model [See-in-dark](<https://github.com/cchen156/Learning-to-See-in-the-Dark>). Through comparing with the image captured during the day, our method is demonstrated to recover higher fidelity both in color and spatial details.
+However, we are still interested in comparing with this method at the same camera settings in the same low light scenario. In this rebuttal,  we calibrate the noise model parameters and train the network for Sony $\alpha$7S 2. Then we make comparisons with the test-sony model  [See-in-dark](<https://github.com/cchen156/Learning-to-See-in-the-Dark>).  A thorough comparison as show in Fig. 3. Through comparing with the image captured during the day, our method is demonstrated to recover higher fidelity both in color and spatial details.
 
 ![](pic/see-in-dark.bmp)
 
@@ -85,5 +85,5 @@ Then we train the noise-to-noise network with different noise models: Poisson, G
 
 ## <span id="I3">Include more results on different type of camera models</span>
 
-We will add more results on different type of camera models in the future work and during rebuttal period we have conduct  experiments on the Sony $\alpha$7S 2 camera, and the results are shown in Fig. 3.
+Here, the camera model of the Sony $\alpha$7S 2 camera is added, and the results are shown in Fig. 3.  We will include these results in the final paper, and build other types of camera models in the future work.
 
