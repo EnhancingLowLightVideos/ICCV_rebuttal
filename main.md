@@ -37,7 +37,7 @@ In the future work, we will explore to introduce temporal consistency loss in ou
 
 ## <span id="R1">Results with large motion are required</span>
 
-Thanks for the suggestion. Our network could deal with the large motion videos well. In fact, we did not deliberately limit the size of the movement on either the training dataset or the test one. Our datasets include about 900 sequences (800 sequences for training and 100 sequences for test). Both the training and test datasets are abundant in moving scenes including small, middle and big motions. The datasets is released at: [Datasets](<https://drive.google.com/open?id=1eC18IbfVGAebJBMDJy2sTdTPjdwdZ4jd>). In Fig. 2, we show more results of our method with big motions.
+Thanks for the suggestion. Our network could deal with the large motion videos well. In fact, we did not deliberately limit the size of the movement on either the training dataset or the test one. Our datasets include about 900 sequences (800 sequences for training and 100 sequences for test). Both the training and test datasets are abundant in moving scenes including small, middle and big motions. The datasets are released at: [Datasets](<https://drive.google.com/open?id=1eC18IbfVGAebJBMDJy2sTdTPjdwdZ4jd>). In Fig. 2, we show more results of our method with big motions.
 
 |                Input                 |            Our results             |
 | :----------------------------------: | :--------------------------------: |
@@ -52,7 +52,7 @@ Thanks for the suggestion. Our network could deal with the large motion videos w
 
 ## <span id="C1">Compare with Learning to See in the Dark</span>
 
-Thank \#R1 for your suggestion.  In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, it is difficult to extent this method to dynamic video denoising. Besides, two specific camera models (Sony $\alpha$7S 2 and Fujifilm X-T2) are provided with only the raw image as input, while those cameras are unable to obtain raw data when taking videos. 
+Thank \#R1 for your suggestion.  In Learning to See in the Dark, due to the requirement of long exposure for capturing clean images, it is difficult to extend this method to dynamic video denoising. Besides, two specific camera models (Sony $\alpha$7S 2 and Fujifilm X-T2) are provided with only the raw image as input, while those cameras are unable to obtain raw data when taking videos. 
 
 However, we are still interested in comparing with this method at the same camera settings in the same low light scenario. In this rebuttal,  we calibrate the noise model parameters and train the network for Sony $\alpha$7S 2. Then we make comparisons with the test-sony model  [See-in-dark](<https://github.com/cchen156/Learning-to-See-in-the-Dark>).  A thorough comparison as show in Fig. 3. Through comparing with the image captured during the day, our method is demonstrated to recover higher fidelity both in color and spatial details.
 
@@ -64,8 +64,7 @@ However, we are still interested in comparing with this method at the same camer
 
 ![](pic/modelvalue_im.bmp)
 
-> Fig. 4 Comparisons on the model including only read noise, photon noise , dark noise(RPD) and the proposed noise model.
->
+> Fig. 4 Comparisons on the model including only read noise, photon noise, and dark noise (RPD).
 
 Thank \#R2 for your suggestion. To verify the effectiveness of the proposed noise model, we train the network of [TOFlow](https://arxiv.org/abs/1711.09078) and our network model upon basic practical noise model (Eq.~1) and the proposed noise model. As show in Fig. 4, with the same network (i.e. TOFlow or our network), the results of proposed noise model are of the best quality in terms of much less chrominance artifacts, more structural details and higher contrast.
 
